@@ -4,11 +4,6 @@
       <h3 slot="list">这里是list标题</h3>
     </headTop>
     <p>我是list页面</p>
-    <el-date-picker
-      v-model="value1"
-      type="date"
-      placeholder="选择日期">
-    </el-date-picker>
   </div>
 </template>
 
@@ -23,7 +18,7 @@ export default {
     return {
       value1: ''
     }
-  }
+  },
 }
 </script>
 

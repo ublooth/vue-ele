@@ -1,13 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '@/views/home/home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'home',
+    redirect:'/home', // 设置默认指向路径
+  },
+  {
+    path: '/home', // 首页
     component: Home
   },
   {
@@ -16,6 +19,7 @@ const routes = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
+    // 分模块打包,按需加载组件
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
