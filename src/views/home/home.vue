@@ -8,13 +8,16 @@
         <span>当前定位城市：</span>
         <span>定位不准时，请在城市列表中选择</span>
       </div>
-      <router-link to class="choice"></router-link>
+      <router-link to class="choice">
+        <span></span>
+        <i class="el-icon-arrow-right" style="font-size: 18px;"></i>
+      </router-link>
     </div>
     <div class="city-list">
       <div class="popular">
         <div class="city-head">热门城市</div>
         <ul class="cityList">
-          <li v-for="item in popularCity" :key="item.id">{{ item.name }}</li>
+          <router-link :to="'/city/' + item.id" tag="li" v-for="item in popularCity" :key="item.id">{{ item.name }}</router-link>
           <div style="clear: both"></div>
         </ul>
       </div>
@@ -26,7 +29,7 @@
           <span v-if="i === 0">（按字母排序）</span>
         </div>
         <ul class="cityList">
-          <li v-for="(item, i) in value" :key="i" class="all-li">{{ item.name }}</li>
+          <router-link :to="'/city/' + item.id" tag="li" v-for="(item, i) in value" :key="i" class="all-li">{{ item.name }}</router-link>
           <div style="clear: both"></div>
         </ul>
       </div>
@@ -69,7 +72,8 @@ export default {
       }
       this.allCity = sortobj;
     });
-  }
+    console.log("//", this.$route.path)
+  },
 };
 </script>
 
@@ -97,6 +101,9 @@ export default {
       @include wh(100%, 40px);
       border-top: 1px solid #e4e4e4;
       border-bottom: 2px solid #e4e4e4;
+      padding: 0 10px;
+      @include fj;
+      align-items: center;
     }
   }
   .city-list {
