@@ -6,7 +6,7 @@ module.exports = {
     // 代理设置
     proxy: {
       '/v1': {
-      target: 'http://localhost:8000',
+      target: 'http://cangdu.org:8001',
       changeOrigin: true,
       ws: true,
       }
