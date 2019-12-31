@@ -72,7 +72,6 @@ export default {
       }
       this.allCity = sortobj;
     });
-    console.log("//", this.$route.path)
   },
 };
 </script>
@@ -110,7 +109,7 @@ export default {
     .popular,
     .all {
       background: #fff;
-      margin-top: 10px;
+      margin-bottom: 10px;
       .city-head {
         padding: 0 10px;
         height: 40px;

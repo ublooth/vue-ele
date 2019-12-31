@@ -13,4 +13,4 @@ module.exports = {
     }
   }
 }
-console.log("url",module.exports.devServer.proxy)
+console.log("url", module.exports.devServer.proxy)

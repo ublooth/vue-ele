@@ -24,17 +24,29 @@ export default {
 <style lang="scss">
 @import '@/style/mixin';
   .home-head {
+    position: relative;
     @include wh(100%, 1.95rem);
-    @include fj;
-    align-items: center;
     background: $blue;
     padding: 0 5px;
+    span {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
     span:nth-child(1) {
+      left: 5px;
       i {
         @include sc(22px,#fff)
       }
     }
+    span:nth-child(2) {
+      width: 65%;
+      text-align: center;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
     span:nth-child(3) {
+      right: 10px;
       p {
         @include sc(14px,#fff)
       }
