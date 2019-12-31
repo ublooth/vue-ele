@@ -4,20 +4,49 @@
       <i class="el-icon-arrow-left" @click="$router.back(-1)"></i>
     </span>
     <span>
-      <slot name="home"></slot>
-      <slot name="about"></slot>
-      <slot name="list"></slot>
-      <slot name="city"></slot>
+      <p>{{ headText }}</p>
     </span>
-    <span v-show="$route.params.cityid">
-      <p>切换城市</p>
+    <span>
+      <router-link v-show="$route.params.cityid" to='/' class="tab">切换城市</router-link>
+      <router-link to='' class="tab" v-show="$route.path === '/home'">
+        <i class="el-icon-user" style="font-size: 22px;"></i>
+      </router-link>
     </span>
   </div>
 </template>
 
 <script>
-export default {
+import { mapState, mapMutations } from 'vuex'
 
+export default {
+  data() {
+    return {
+      
+    }
+  },
+  computed: {
+    ...mapState([
+      'headText',
+    ])
+  },
+  watch: {
+    $route(to){
+      let str = to.path.split('/')
+      if(str[1] === 'home') {
+        this.setHeadText('首页');
+      }
+    }
+  },
+  methods: {
+    ...mapMutations([
+      'setHeadText', //also supports payload `this.setHeadText(amount)` 
+    ]),
+  },
+  mounted () {
+  },
+  created () {
+    // this.url = this.$route.path;
+  },
 }
 </script>
 
@@ -29,6 +58,7 @@ export default {
     background: $blue;
     padding: 0 5px;
     span {
+      color: #fff;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
@@ -47,7 +77,7 @@ export default {
     }
     span:nth-child(3) {
       right: 10px;
-      p {
+      .tab {
         @include sc(14px,#fff)
       }
     }

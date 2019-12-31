@@ -23,14 +23,29 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/list',
-    name: 'list',
-    component: () => import(/* webpackChunkName: "list" */ '../views/list.vue')
-  },
-  {
     path: '/city/:cityid',
     name: 'city',
     component: () => import(/* webpackChunkName: "city" */ '../views/city/city.vue')
+  },
+  {
+    path: '/takeOut',
+    name: 'takeOut',
+    component: () => import(/* webpackChunkName: "takeOut" */ '../views/takeOut/takeOutIndex.vue')
+  },
+  {
+    path: '/search',
+    name: 'search',
+    component: () => import(/* webpackChunkName: "search" */ '../views/search/searchIndex.vue')
+  },
+  {
+    path: '/order',
+    name: 'order',
+    component: () => import(/* webpackChunkName: "order" */ '../views/order/orderIndex.vue')
+  },
+  {
+    path: '/my',
+    name: 'my',
+    component: () => import(/* webpackChunkName: "my" */ '../views/my/myIndex.vue')
   }
 ]
 

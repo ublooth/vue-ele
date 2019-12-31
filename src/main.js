@@ -24,8 +24,9 @@ import {
 Vue.use(Icon)
 
 // 按需引入部分组件
-import { Toast } from 'mint-ui';
+import { Toast, Spinner } from 'mint-ui';
 Vue.component(Toast.name, Toast);
+Vue.component(Spinner.name, Spinner);
 
 Vue.config.productionTip = false;
 

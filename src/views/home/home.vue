@@ -1,8 +1,5 @@
 <template>
   <div class="home">
-    <headTop>
-      <h3 slot="home">这里是首页标题</h3>
-    </headTop>
     <div class="current">
       <div class="city-gps">
         <span>当前定位城市：</span>
@@ -17,7 +14,7 @@
       <div class="popular">
         <div class="city-head">热门城市</div>
         <ul class="cityList">
-          <router-link :to="'/city/' + item.id" tag="li" v-for="item in popularCity" :key="item.id">{{ item.name }}</router-link>
+          <li v-for="item in popularCity" :key="item.id" @click="asd(item)">{{ item.name }}</li>
           <div style="clear: both"></div>
         </ul>
       </div>
@@ -29,7 +26,7 @@
           <span v-if="i === 0">（按字母排序）</span>
         </div>
         <ul class="cityList">
-          <router-link :to="'/city/' + item.id" tag="li" v-for="(item, i) in value" :key="i" class="all-li">{{ item.name }}</router-link>
+          <li @click="asd(item)" v-for="(item, i) in value" :key="i" class="all-li">{{ item.name }}</li>
           <div style="clear: both"></div>
         </ul>
       </div>
@@ -39,18 +36,22 @@
 
 <script>
 // @ is an alias to /src
-import headTop from "@/components/head/head";
 import { groupcity, hotcity } from "@/service/getData";
 
 export default {
   components: {
-    headTop
+    
   },
   data() {
     return {
       popularCity: [],
       allCity: []
     };
+  },
+  methods: {
+    asd(data) {
+      this.$router.push("/city/" + data.id)
+    }
   },
   mounted() {
     // 获取首页热门城市
